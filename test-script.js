@@ -15,9 +15,8 @@ const client = new pg.Client({
 client.connect((err) => {
   if (err) {
     return console.error("Connection Error", err);
-  })
-  .then(
-    client.query(`SELECT * FROM famous_people WHERE first_name = '${argument}' OR last_name = '${argument}'`, (err, result) => {
+  }
+  client.query(`SELECT * FROM famous_people WHERE first_name = '${argument}' OR last_name = '${argument}'`, (err, result) => {
       if (err) {
         return console.error("error running query", err);
       }
